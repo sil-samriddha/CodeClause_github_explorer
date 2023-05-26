@@ -19,7 +19,7 @@ btn.addEventListener('click', async function(e){
     });
 
     try{
-        let response = await fetch("https://api.github.com/users/sil-samriddha");
+        let response = await fetch(`https://api.github.com/users/${username}`);
         let data = await response.json();
 
         let response2 = await fetch(data.repos_url);
@@ -36,7 +36,9 @@ btn.addEventListener('click', async function(e){
                         ${e.name}
                     </a>
                 </td>
-                <td>${e.created_at.split("T")[0]}</td>
+                <td><img src='./src/fork-icon.png' width='20px'> ${e.forks} </td>
+                <td><img src='./src/issue-icon.png' width='20px'> ${e.open_issues}</td>
+                <td><img src='./src/watch-icon.png' width='20px'> ${e.watchers}</td>
             </tr>
         `
             
@@ -73,7 +75,7 @@ btn.addEventListener('click', async function(e){
         </div>
     </div>
     <div class="main">
-        <h2>PERSONAL INFORMATION</h2>
+        <h2>${data.type} INFORMATION</h2>
         <div class="card">
             <div class="card-body">
                 <table>

@@ -201,6 +201,7 @@ hr {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 24px;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .main .card {

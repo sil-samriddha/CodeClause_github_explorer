@@ -22,6 +22,21 @@ btn.addEventListener('click', async function(e){
         let response = await fetch(`https://api.github.com/users/${username}`);
         let data = await response.json();
 
+
+        if(data.message === 'Not Found'){
+            content.innerHTML = `
+            <div class="body">
+                <div class="error">
+                    <img src="./src/not-found.png" alt="">
+                    <div>
+                        <h2>NOT FOUND</h2>
+                        <p>Please check if you entered the correct username or try a different one.</p>
+                    </div>
+                </div>
+            </div>`
+        }
+
+
         let response2 = await fetch(data.repos_url);
         let data2 = await response2.json();
 
@@ -125,7 +140,7 @@ btn.addEventListener('click', async function(e){
 
     }
     catch(e){
-        alert(e.message);
+        console.error(e.message);
     }
 
 });

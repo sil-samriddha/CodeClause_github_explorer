@@ -70,7 +70,7 @@ btn.addEventListener('click', async function(e){
                 ${data.name}
             </div>
             <div class="job">
-                ${data.company}
+                ${data.company===null? 'Not Provided' : data.company}
             </div>
         </div>
 
@@ -80,7 +80,7 @@ btn.addEventListener('click', async function(e){
                 <hr>
             </div>
             <div class="bio">
-                ${data.bio}
+                ${data.bio===null? 'Not Provided' : data.bio}
             </div>
             <div class="url">
                 <hr>
@@ -103,22 +103,22 @@ btn.addEventListener('click', async function(e){
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td>${data.email}</td>
+                            <td>${data.email===null? 'Not Provided' : data.email}</td>
                         </tr>
                         <tr>
                             <td>Address</td>
                             <td>:</td>
-                            <td>${data.location}</td>
+                            <td>${data.location===null? 'Not Provided' : data.location}</td>
                         </tr>
                         <tr>
                             <td>Created at</td>
                             <td>:</td>
-                            <td>${data.created_at.split("T")[0]}</td>
+                            <td>${data.created_at.split("T")[0]} (${data.created_at.split("T")[1].split("Z")[0]})</td>
                         </tr>
                         <tr>
                             <td>Updated at</td>
                             <td>:</td>
-                            <td>${data.updated_at.split("T")[0]}</td>
+                            <td>${data.updated_at.split("T")[0]} (${data.updated_at.split("T")[1].split("Z")[0]})</td>
                         </tr>
                     </tbody>
                 </table>
